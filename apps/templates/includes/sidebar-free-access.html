@@ -1,0 +1,67 @@
+<!-- [ navigation menu ] start -->
+<nav class="pcoded-navbar">
+  <div class="navbar-wrapper">
+    <div class="navbar-brand header-logo">
+      <a href="{{ url_for('home_blueprint.calculator_page') }}" class="b-brand">
+        <img class="BS_logo" src="/static/assets/images/BuilderScript-logo.png" alt="BS_Logo">
+      </a>
+      <a class="mobile-menu" id="mobile-collapse" href="javascript:"><span></span></a>
+    </div>
+    <div class="navbar-content scroll-div">
+      <ul class="nav pcoded-inner-navbar">
+        <li class="nav-item pcoded-menu-caption">
+          <label>Nawigacja</label>
+        </li>
+        <li class="nav-item {% if id == 'kalkulatory' %} active {% endif %}">
+          <a href="/kalkulatory" class="nav-link "><span class="pcoded-micon"><i class="feather icon-home"></i></span>
+            <span class="pcoded-mtext">Wstęp</span></a>
+        </li>
+        <li class="nav-item {% if id == 'informacje' %} active {% endif %}">
+          <a href="/kalkulatory/informacje" class="nav-link "><span class="pcoded-micon"><i class="feather icon-info"></i></span>
+            <span class="pcoded-mtext">Informacje</span></a>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link "><span class="pcoded-micon"><i class="feather icon-log-out"></i></span>
+            <span class="pcoded-mtext">Logowanie</span></a>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link "><span class="pcoded-micon"><i class="feather icon-user-plus"></i></span>
+            <span class="pcoded-mtext">Rejestracja</span></a>
+        </li>
+
+        <li class="nav-item pcoded-menu-caption">
+          <label>Kalkulatory</label>
+        </li>
+        <li class="nav-item pcoded-hasmenu">
+          <a href="javascript:" class="nav-link "><span class="pcoded-micon"><i class="feather icon-minus-square"></i></span><span class="pcoded-mtext">Moduł stalowy</span></a>
+          <ul class="pcoded-submenu">
+            <li class=""><a href="/bc_button.html" class="">Button</a></li>
+          </ul>
+        </li>
+        <li class="nav-item pcoded-hasmenu">
+          <a href="javascript:" class="nav-link "><span class="pcoded-micon"><i class="feather icon-box"></i></span><span class="pcoded-mtext">Moduł żelbetowy</span></a>
+          <ul class="pcoded-submenu">
+            <li class=""><a href="{{ url_for('home_blueprint.dodawanie_page', slot=1) }}" class="">Dodawanie</a></li>
+          </ul>
+        </li>
+        <li class="nav-item pcoded-menu-caption">
+          <label>Więcej zasobów</label>
+        </li>
+                <li class="nav-item">
+          <a href="/" class="nav-link "><span class="pcoded-micon"><i class="feather icon-home"></i></span>
+            <span class="pcoded-mtext">Powrót do strony głównej</span></a>
+        </li>
+        <li class="nav-item ">
+          <a target="_blank" href="/#kontakt" class="nav-link">
+            <span class="pcoded-micon">
+              <i class="feather icon-headphones"></i>
+            </span>
+            <span class="pcoded-mtext">Kontakt</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<!-- [ navigation menu ] end -->
+<!-- Edited by Pawel -->

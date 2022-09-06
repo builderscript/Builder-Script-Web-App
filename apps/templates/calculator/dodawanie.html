@@ -1,0 +1,78 @@
+{% extends "layouts/base-free-access.html" %}
+
+{% block content %}
+
+<!-- [ Main Content ] start -->
+<div class="pcoded-main-container">
+  <div class="pcoded-wrapper">
+    <div class="pcoded-content">
+      <div class="pcoded-inner-content">
+
+        {% include "includes/archive.html" %}
+
+        <!-- [ Calculations ] start -->
+
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="card">
+              <div class="card-header">
+                <h5>Obliczenia</h5>
+              </div>
+              <div class="card-body">
+                <h5>Dane</h5>
+                <hr>
+                <div class="row">
+                  <div class="col-md-6">
+                    <form action="{{ url_for('home_blueprint.dodawanie_page', slot=slot) }}" method="post">
+                      <div class="form-group">
+                        <label>Opis</label>
+                        {% if data %}
+                        <input type="text" class="form-control" value="{{ data[0] }}" name="tekst">
+                        {% else %}
+                        <input type="text" class="form-control" placeholder="dodaj opis" name="tekst">
+                        {% endif %}
+                      </div>
+                      <div class="form-group">
+                        <label>Pierwsza liczba</label>
+                        {% if data %}
+                        <input type="text" class="form-control" value="{{ data[1]['liczba1'] }}" name="liczba1">
+                        {% else %}
+                        <input type="text" class="form-control" placeholder="podaj liczbę" name="liczba1">
+                        {% endif %}
+                      </div>
+                      <div class="form-group">
+                        <label>Druga liczba</label>
+                        {% if data %}
+                        <input type="text" class="form-control" value="{{ data[1]['liczba2'] }}" name="liczba2">
+                        {% else %}
+                        <input type="text" class="form-control" placeholder="podaj liczbę" name="liczba2">
+                        {% endif %}
+                      </div>
+                      {% include "includes/calculation-buttons.html" %}
+                    </form>
+
+                  </div>
+                  <div class="col-md-6">
+                    {% if data %}
+                    <label class="label theme-bg2 text-white f-14 f-w-400 float-right">{{ data[2]['wynik'] }}</label>
+                    {% else %}
+                    <label class="label theme-bg2 text-white f-14 f-w-400 float-right">wynik</label>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- [ Calculations ] end -->
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- [ Main Content ] end -->
+
+{% endblock content %}
+<!-- Edited by Pawel -->

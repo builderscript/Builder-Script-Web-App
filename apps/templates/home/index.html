@@ -1,0 +1,570 @@
+<!--
+
+=========================================================
+* Pixel Free Bootstrap 5 UI Kit
+=========================================================
+
+* Product Page: https://themesberg.com/product/ui-kit/pixel-free-bootstrap-5-ui-kit
+* Copyright 2021 Themesberg (https://www.themesberg.com)
+
+* Coded by https://themesberg.com
+
+=========================================================
+
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. Contact us if you want to remove it.
+
+-->
+
+
+<!DOCTYPE html>
+<html lang="pl" id="strona-główna">
+
+
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+  <!-- Primary Meta Tags -->
+  <title>
+    BuilderScript | Projekty | Kalkulator Eurokod
+  </title>
+
+  <!-- Meta -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="description" content="Twórz, wykonuj obliczenia i zarządzaj swoimi projektami. Builder Script dostarcza moduły do obliczeń konstrukcji stalowych, żelbetowych oraz elementów sprężonych zgodnie z zestawem Norm Europejskich - Eurokod." />
+  <meta name="keywords" content="stal, żelbet, sprężone, kalkulator eurokod, kalkulatory eurokod, eurokody, PN-EN, PN-EN 1990, PN-EN 1991-1-1, PN-EN 1992-1-1, PN-EN 1993-1-1, normy europejskie, obliczenia eurokod, konstrukcje sprężone, strefy wiatrowe eurokod, kalkulatory, kalkulatory budowlane, kalkulatory inżynierskie, kalkulatory ec, kalkulatory online" />
+  <meta name="author" content="Paweł Jabłoński" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="{{ config.ASSETS_ROOT }}/images/BuilderScript-favicon.png" type="image/x-icon">
+
+  <!-- Fontawesome -->
+  <link type="text/css" href="/static/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
+
+  <!-- Pixel CSS -->
+  <link type="text/css" href="/static/assets/css/pixel.css" rel="stylesheet">
+
+  <!-- Feather Icons -->
+  <script src="https://unpkg.com/feather-icons"></script>
+</head>
+
+
+
+<body>
+  <!-- Navbar -->
+  <header class="header-global">
+    <nav id="navbar-main" aria-label="Primary navigation" class="navbar navbar-main navbar-expand-lg navbar-theme-primary headroom navbar-dark">
+      <div class="container position-relative">
+        <a class="navbar-brand me-lg-5" href="#strona-główna">
+          <img class="navbar-brand-dark" src="/static/assets/images/BuilderScript-logo.png" alt="BS_Logo">
+          <img class="navbar-brand-light" src="/static/assets/images/BuilderScript-logo.png" alt="BS_Logo">
+        </a>
+
+        <!-- Navbar buttons -->
+        <div class="navbar-collapse collapse me-auto" id="navbar_global">
+          <div class="navbar-collapse-header">
+            <div class="row">
+              <div class="col-6 collapse-close">
+                <a href="#navbar_global" class="fas fa-times" data-bs-toggle="collapse" data-bs-target="#navbar_global" aria-controls="navbar_global" aria-expanded="false" title="zamknij" aria-label="Toggle navigation"></a>
+              </div>
+            </div>
+          </div>
+          <ul class="navbar-nav navbar-nav-hover align-items-lg-center">
+            <li class="nav-item dropdown">
+              <a href="#" class="nav-link dropdown-toggle d-none">
+                d-none
+              </a>
+              <a href="#poznaj-możliwości" class="nav-link dropdown-toggle">
+                Poznaj możliwości
+              </a>
+            </li>
+            <li class="nav-item dropdown">
+              <a href="#rodzaje-kont" class="nav-link dropdown-toggle">
+                Rodzaje kont
+              </a>
+            </li>
+            <li class="nav-item dropdown">
+              <a href="#o-mnie" class="nav-link dropdown-toggle">
+                O mnie
+              </a>
+            </li>
+            <li class="nav-item dropdown">
+              <a href="#kontakt" class="nav-link dropdown-toggle">
+                Kontakt
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Sign in / sign up / calculator buttons -->
+        <div class="d-flex align-items-center">
+          <a href="{{ url_for('authentication_blueprint.logout') }}" class="btn btn-outline-gray-100 d-none d-lg-inline me-md-3"><span class="fas fa-sign-out-alt me-2"></span> Zaloguj się</a>
+          <a href="{{ url_for('authentication_blueprint.logout') }}" class="btn btn-outline-gray-100 d-none d-lg-inline me-md-3"><span class="fas fa-user-plus me-2"></span> Zarejestruj się</a>
+          <a href="{{ url_for('home_blueprint.calculator_page') }}" class="btn btn-tertiary"><i class="fas fa-calculator me-2"></i> Kalkulatory</a>
+          <button class="navbar-toggler ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbar_global" aria-controls="navbar_global" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <!-- End of Navbar -->
+
+  <main>
+    <!-- Hero -->
+    <section class="section-image section-header bg-secondary text-white">
+      <div class="container">
+        <div class="row justify-content-between align-items-center">
+          <div class="col-12 col-md-7 col-lg-6 text-center text-md-left">
+            <h1 class="display-2 mb-4">Pełna kontrola nad <br class="d-none d-md-inline">Twoimi projektami</h1>
+            <p class="lead mb-4 text-muted">Twórz, wykonuj obliczenia i zarządzaj swoimi projektami. Builder Script dostarcza moduły do obliczeń konstrukcji stalowych, żelbetowych oraz elementów sprężonych zgodnie z zestawem Norm Europejskich -
+              Eurokod.</p>
+            <a href="{{ url_for('home_blueprint.calculator_page') }}" class="btn btn-tertiary me-3 animate-up-2">Przejdź do darmowych kalkulatorów <span class="ms-2"><span class="fas fa-arrow-right"></span></span></a>
+          </div>
+        </div>
+      </div>
+      <figure class="position-absolute bottom-0 left-0 w-100 d-none d-md-block mb-n2">
+        <svg class="fill-white" version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 1920 43.4" style="enable-background:new 0 0 1920 43.4;" xml:space="preserve">
+          <path d="M0,23.3c0,0,405.1-43.5,697.6,0c316.5,1.5,108.9-2.6,480.4-14.1c0,0,139-12.2,458.7,14.3 c0,0,67.8,19.2,283.3-22.7v35.1H0V23.3z"></path>
+        </svg>
+      </figure>
+    </section>
+    <!-- End of Hero section -->
+
+    <!-- Section - Poznaj możliwości -->
+    <section class="section section-md">
+      <div class="container" id="poznaj-możliwości">
+        <div class="row align-items-center justify-content-around">
+          <div class="col-md-6 col-xl-6 mb-5">
+            <img class="organic-radius img-fluid" src="/static/assets/images/features.jpg" alt="Features">
+          </div>
+          <div class="col-md-6 col-xl-5 text-center text-md-left">
+            <h2 class="h1 mb-5">Poznaj możliwości.</h2>
+            <p class="lead">Builder Script stanowi platformę do zarządzania projektami. Utwórz nowy katalog projektu, dodaj członków zespołu, pozostań w kontakcie i miej wszystko pod kontrolą w jednym miejscu. Zachowaj pełną koordynację i stwórzmy
+              lepsze projekty - wspólnie.</p>
+            <p class="lead">Zdarzyło Ci się liczyć na kalkulatorze lub korzystać z arkusza kalkulacyjnego? Mi również. Skorzystaj z modułów do obliczeń konstrukcji stalowych, żelbetowych oraz elementów sprężonych. Dodaj obliczenia do konkretnego
+              projektu i powróć do nich w dowolnej chwili. Nie zastanawiaj się jaki był rezultat obliczeń i nie trać czasu na ponowne liczenie.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- End of section - Poznaj możliwości -->
+
+    <!-- Section - Poznaj możliwości - Icons -->
+    <section class="section section-lg pt-0">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4 col-lg-4 text-center">
+            <!-- Visit Box -->
+            <div class="icon-box mb-4">
+              <div class="icon icon-shape icon-lg bg-white shadow-lg border-light rounded-circle mb-4">
+                <span class="fas fa-users text-tertiary"></span>
+              </div>
+              <span class="counter display-4 text-gray d-block">Zarządzaj</span>
+            </div>
+            <!-- End of Visit Box -->
+          </div>
+          <div class="col-md-4 col-lg-4 text-center">
+            <!-- Call Box -->
+            <div class="icon-box mb-4">
+              <div class="icon icon-shape icon-lg bg-white shadow-lg border-light rounded-circle mb-4">
+                <span class="fas fa-calculator text-tertiary"></span>
+              </div>
+              <span class="counter display-4 text-gray d-block">Obliczaj</span>
+            </div>
+            <!-- End of Call Box -->
+          </div>
+          <div class="col-md-4 col-lg-4 text-center">
+            <!-- Email Box -->
+            <div class="icon-box mb-4">
+              <div class="icon icon-shape icon-lg bg-white shadow-lg border-light rounded-circle mb-4">
+                <span class="fas fa-arrow-up text-tertiary"></span>
+              </div>
+              <span class="counter display-4 text-gray d-block">Rozwijaj się</span>
+            </div>
+            <!-- End of Email Box -->
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- End of section - Poznaj możliwości - Icons -->
+
+    <!-- Section - carousels -->
+    <div class="section section-sm pb-0 mb-n4">
+      <div class="container">
+        <div class="row justify-content-center">
+          <h2 class="h1 mb-5 text-center">Przekonaj się jakie to proste.</h2>
+
+        </div>
+      </div>
+    </div>
+    <div class="section section-md">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-10 mx-auto">
+            <div id="Carousel2" class="carousel slide" data-ride="carousel">
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <img class="d-block w-100" src="/static/assets/images/widget/dashborad-1.png" alt="First slide">
+                </div>
+                <div class="carousel-item">
+                  <img class="d-block w-100" src="/static/assets/images/widget/dashborad-2.png" alt="Second slide">
+                </div>
+                <div class="carousel-item">
+                  <img class="d-block w-100" src="/static/assets/images/widget/dashborad-3.png" alt="Third slide">
+                </div>
+              </div>
+              <a class="carousel-control-prev" href="#Carousel2" role="button" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="carousel-control-next" href="#Carousel2" role="button" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End of Section - carousels -->
+
+    <!-- Section - cards -->
+    <section class="section section-lg bg-gray-200">
+      <figure class="position-absolute top-0 left-0 w-100 d-none d-md-block mt-n3">
+        <svg class="fill-gray-200" version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 1920 43.4" style="enable-background:new 0 0 1920 43.4;" xml:space="preserve">
+          <path d="M0,23.3c0,0,405.1-43.5,697.6,0c316.5,1.5,108.9-2.6,480.4-14.1c0,0,139-12.2,458.7,14.3 c0,0,67.8,19.2,283.3-22.7v35.1H0V23.3z"></path>
+        </svg>
+      </figure>
+      <div class="container" id="rodzaje-kont">
+        <div class="row justify-content-center">
+          <h2 class="h1 mb-4 text-center">Rodzaje kont</h2>
+          <p class="lead text-center">Dowiedz się, które rozwiązanie najbardziej odpowiada Twoim potrzebom.
+          </p>
+        </div>
+      </div>
+      <div class="section section-md bg-gray-200">
+        <div class="container">
+          <div class="row mb-5">
+            <div class="col-12 col-md-6 col-lg-4 mb-5 mb-lg-0">
+              <div class="card shadow text-center">
+                <!-- Header -->
+                <div class="card-header bg-white p-3">
+                  <h3 class="text-primary mb-4">Darmowy dostęp</h3>
+                  <span class="d-block">
+                    <span class="display-1 text-dark fw-bold">
+                      <span class="align-top font-medium">PLN</span>0
+                    </span>
+                    <span class="d-block text-gray font-small">/ miesiąc</span>
+                  </span>
+                </div>
+                <!-- End Header -->
+                <!-- Content -->
+                <div class="card-body">
+                  <ul class="list-group list-group-flush price-list">
+                    <li class="list-group-item bg-white border-0 ps-0 text-md-left">
+                      <span class="icon-success"><span class="fas fa-check-circle"></span></span> Podstawowe kalkulatory</li>
+                    <li class="list-group-item bg-white border-0 ps-0 text-md-left">
+                      <span class="icon-success"><span class="fas fa-check-circle"></span></span> Zapisywanie wyników obliczeń</li>
+                    <li class="list-group-item bg-white border-0 ps-0 text-md-left">
+                      <span class="icon-danger"><span class="fas fa-times-circle"></span></span> Dostęp do pełnej strony</li>
+                    <li class="list-group-item bg-white border-0 ps-0 text-md-left">
+                      <span class="icon-danger"><span class="fas fa-times-circle"></span></span> Możliwość zarządzania projektami</li>
+                    <li class="list-group-item bg-white border-0 ps-0 text-md-left">
+                      <span class="icon-danger"><span class="fas fa-times-circle"></span></span> Komunikacja z zespołem</li>
+                    <li class="list-group-item bg-white border-0 ps-0 text-md-left">
+                      <span class="icon-danger"><span class="fas fa-times-circle"></span></span> Tworzenie notek obliczeniowych</li>
+                    <li class="list-group-item bg-white border-0 ps-0 text-md-left">
+                      <span class="icon-danger"><span class="fas fa-times-circle"></span></span> Obliczenia elementów sprężonych</li>
+                  </ul>
+                  <div class="d-grid"><a href="{{ url_for('home_blueprint.calculator_page') }}" class="btn btn-primary animate-up-1">Zacznij korzystać za darmo!</a></div>
+                </div>
+                <!-- End Content -->
+              </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4 mb-5 mb-lg-0">
+              <div class="card shadow text-center">
+                <!-- Header -->
+                <div class="card-header bg-white p-3">
+                  <h3 class="text-primary mb-4">Standard</h3>
+                  <span class="d-block">
+                    <span class="display-1 text-dark fw-bold">
+                      <span class="align-top font-medium">PLN</span>?
+                    </span>
+                    <span class="d-block text-gray font-small">/ miesiąc</span>
+                  </span>
+                </div>
+                <!-- End Header -->
+                <!-- Content -->
+                <div class="card-body">
+                  <ul class="list-group list-group-flush price-list">
+                    <li class="list-group-item bg-white border-0 ps-0 text-md-left">
+                      <span class="icon-success"><span class="fas fa-check-circle"></span></span> Podstawowe kalkulatory</li>
+                    <li class="list-group-item bg-white border-0 ps-0 text-md-left">
+                      <span class="icon-success"><span class="fas fa-check-circle"></span></span> Zapisywanie wyników obliczeń</li>
+                    <li class="list-group-item bg-white border-0 ps-0 text-md-left">
+                      <span class="icon-success"><span class="fas fa-check-circle"></span></span> Dostęp do pełnej strony</li>
+                    <li class="list-group-item bg-white border-0 ps-0 text-md-left">
+                      <span class="icon-success"><span class="fas fa-check-circle"></span></span> Możliwość zarządzania projektami</li>
+                    <li class="list-group-item bg-white border-0 ps-0 text-md-left">
+                      <span class="icon-success"><span class="fas fa-check-circle"></span></span> Komunikacja z zespołem</li>
+                    <li class="list-group-item bg-white border-0 ps-0 text-md-left">
+                      <span class="icon-danger"><span class="fas fa-times-circle"></span></span> Tworzenie notek obliczeniowych</li>
+                    <li class="list-group-item bg-white border-0 ps-0 text-md-left">
+                      <span class="icon-danger"><span class="fas fa-times-circle"></span></span> Obliczenia elementów sprężonych</li>
+                  </ul>
+                  <div class="d-grid"><a href="#" class="btn btn-primary animate-up-1">Tymczasowo niedostępne</a></div>
+                </div>
+                <!-- End Content -->
+              </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4 mb-5 mb-lg-0">
+              <div class="card shadow text-center">
+                <!-- Header -->
+                <div class="card-header bg-white p-3">
+                  <h3 class="text-primary mb-4">Premium</h3>
+                  <span class="d-block">
+                    <span class="display-1 text-dark fw-bold">
+                      <span class="align-top font-medium">PLN</span>?
+                    </span>
+                    <span class="d-block text-gray font-small">/ miesiąc</span>
+                  </span>
+                </div>
+                <!-- End Header -->
+                <!-- Content -->
+                <div class="card-body">
+                  <ul class="list-group list-group-flush price-list">
+                    <li class="list-group-item bg-white border-0 ps-0 text-md-left">
+                      <span class="icon-success"><span class="fas fa-check-circle"></span></span> Podstawowe kalkulatory</li>
+                    <li class="list-group-item bg-white border-0 ps-0 text-md-left">
+                      <span class="icon-success"><span class="fas fa-check-circle"></span></span> Zapisywanie wyników obliczeń</li>
+                    <li class="list-group-item bg-white border-0 ps-0 text-md-left">
+                      <span class="icon-success"><span class="fas fa-check-circle"></span></span> Dostęp do pełnej strony</li>
+                    <li class="list-group-item bg-white border-0 ps-0 text-md-left">
+                      <span class="icon-success"><span class="fas fa-check-circle"></span></span> Możliwość zarządzania projektami</li>
+                    <li class="list-group-item bg-white border-0 ps-0 text-md-left">
+                      <span class="icon-success"><span class="fas fa-check-circle"></span></span> Komunikacja z zespołem</li>
+                    <li class="list-group-item bg-white border-0 ps-0 text-md-left">
+                      <span class="icon-success"><span class="fas fa-check-circle"></span></span> Tworzenie notek obliczeniowych</li>
+                    <li class="list-group-item bg-white border-0 ps-0 text-md-left">
+                      <span class="icon-success"><span class="fas fa-check-circle"></span></span> Obliczenia elementów sprężonych</li>
+                  </ul>
+                  <div class="d-grid"><a href="#" class="btn btn-primary animate-up-1">Tymczasowo niedostępne</a></div>
+                </div>
+                <!-- End Content -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <figure class="position-absolute bottom-0 left-0 w-100 d-none d-md-block mb-n2">
+        <svg class="fill-white" version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 1920 43.4" style="enable-background:new 0 0 1920 43.4;" xml:space="preserve">
+          <path d="M0,23.3c0,0,405.1-43.5,697.6,0c316.5,1.5,108.9-2.6,480.4-14.1c0,0,139-12.2,458.7,14.3 c0,0,67.8,19.2,283.3-22.7v35.1H0V23.3z"></path>
+        </svg>
+      </figure>
+    </section>
+    <!-- End of Section - cards -->
+
+    <!-- Section - o mnie -->
+    <section class="section section-lg" id="o-mnie">
+      <div class="container">
+        <div class="row mb-5 mb-lg-6">
+          <div class="col-12 col-md-9 col-lg-8 text-center mx-auto">
+            <h2 class="h1 mb-4">O mnie</h2>
+            <p class="lead">Dowiedz się o mnie więcej.<br>Poznajmy się.<br></p>
+          </div>
+        </div>
+        <div class="mb-5 mb-lg-6">
+          <div class="mb-5 mb-lg-0">
+            <div class="card-me shadow border-gray-300">
+              <img src="/static/assets/images/about_me.jpg" class="card-img-top rounded-top" alt="Paweł Jabłoński">
+              <div class="card-body">
+                <h3 class="h4 card-title mb-2">Paweł Jabłoński</h3>
+                <span class="card-subtitle text-gray fw-normal">Założyciel Builder Script</span>
+                <p class="card-text my-3">Posiadam tytuł mgr inż. budownictwa w specjalności konstrukcje budowlane i inżynierskie. Od blisko 4lat zajmuję się zawodowo projektowaniem konstrukcji żelbetowych, stalowych oraz elementów sprężonych.</p>
+                <p class="card-text my-3">Bardzo często zdarzało mi się szybko liczyć lub szacować elementy za pomocą kalkulatora lub arkusza kalkulacyjnego. Postanowiłem opracować narzędzie, które pozwoli z jednego miejsca zarządzać projektem,
+                  wykonywać proste obliczenia i mieć dostęp do ich wyników w każdej chwili.</p>
+                <p class="card-text my-3">Właśnie tym jest Builder Script.</p>
+                <ul class="list-unstyled d-flex mt-3 mb-0">
+                  <li>
+                    <a href="mailto:p.jablonski@builderscript.com.pl" class="me-3">
+                      <span class="fas fa-envelope"></span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://www.linkedin.com/in/link-jablonski-pawel" target="_blank" aria-label="dribbble social link" class="icon-dribbble me-3">
+                      <span class="fab fa-linkedin"></span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row justify-content-center" id="kontakt">
+          <div class="col-12 col-lg-8">
+            <!-- Contact Card -->
+            <div class="card border-0 p-2 p-md-3 p-lg-5">
+              <div class="card-header bg-white border-0 text-center">
+                <h2>Kontakt</h2>
+                <p>Masz pytania? Świetnie! Znam na nie odpowiedzi.</p>
+              </div>
+              <div class="card-body pt-0">
+                <form action="{{ url_for('services_blueprint.send_message') }}" method="post">
+                  <!-- Form -->
+                  <div class="mb-4">
+                    <label for="name">Imię i nazwisko</label>
+                    <div class="input-group">
+                      <span class="input-group-text" id="basic-addon3"><span class="fas fa-user-circle"></span></span>
+                      <input type="text" class="form-control" placeholder="Imię Nazwisko" id="name" required name="name">
+                    </div>
+                  </div>
+                  <!-- End of Form -->
+                  <!-- Form -->
+                  <div class="mb-4">
+                    <label for="email">Adres Email</label>
+                    <div class="input-group">
+                      <span class="input-group-text" id="basic-addon4"><span class="fas fa-envelope"></span></span>
+                      <input type="email" class="form-control" placeholder="przykład@firma.com" id="email" required name="email">
+                    </div>
+                  </div>
+                  <!-- End of Form -->
+                  <div class="mb-4">
+                    <label for="message">Treść wiadomości</label>
+                    <textarea placeholder="Twoja wiadomość" class="form-control" id="message" rows="4" required name="message"></textarea>
+                  </div>
+                  <!-- End of Form -->
+                  <div class="d-grid">
+                    <button type="submit" class="btn btn-secondary">Wyślij wiadomość</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <!-- End of Contact Card -->
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- End of section - o mnie -->
+
+  </main>
+
+  <section class="section py-0">
+    <div class="container z-2">
+      <div class="row position-relative justify-content-center align-items-cente">
+        <div class="col-12">
+          <!-- Card -->
+          <div class="card border-light px-4 py-1">
+            <div class="card-body text-center text-md-left">
+              <div class="row align-items-center">
+                <div class="col-md-6">
+                  <h2 class="h1 mb-3">Wiesz już wszystko na temat Builder Script?</h2>
+                  <p class="lead mb-4">
+                    Zacznij korzystać za darmo teraz! <br>Zarządzaj, obliczaj, rozwijaj się.<br></p>
+                  <a href="{{ url_for('home_blueprint.calculator_page') }}" class="btn btn-primary">
+                    <span class="me-1">
+                      <span class="fas fa-calculator"></span>
+                    </span>
+                    Przejdź do darmowych kalkulatorów!
+                  </a>
+                </div>
+                <div class="col-12 col-md-6 mt-5 mt-md-0 text-md-right">
+                  <img src="/static/assets/images/reading-side.svg" alt="">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer pb-4 bg-primary text-white pt-9 mt-n9">
+    <div class="container">
+      <div class="row mt-6">
+        <div class="col-md-4">
+          <p><strong>Builder Script</strong> - twórz, wykonuj obliczenia i zarządzaj swoimi projektami. <br><strong>Builder Script</strong> dostarcza moduły do obliczeń konstrukcji stalowych, żelbetowych oraz elementów sprężonych zgodnie z zestawem
+            Norm Europejskich - Eurokod.<br></p>
+          <ul class="social-buttons mb-5 mb-lg-0">
+            <li>
+              <a href="mailto:p.jablonski@builderscript.com.pl" class="me-3">
+                <span class="fas fa-envelope"></span>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.linkedin.com/in/link-jablonski-pawel" target="_blank" aria-label="dribbble social link" class="icon-dribbble me-3">
+                <span class="fab fa-linkedin"></span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-6 col-md-2 mb-5 mb-lg-0">
+          <h3 class="h5">Dokumenty</h3>
+          <ul class="links-vertical">
+            <li><a target="_blank" href="/">Regulamin</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-md-2 mb-5 mb-lg-0">
+          <h3 class="h5">Inne</h3>
+          <ul class="links-vertical">
+            <li><a href="{{ url_for('home_blueprint.home_page') }}">Powrót na górę strony</a></li>
+          </ul>
+        </div>
+        <div class="col-12 col-md-4 mb-5 mb-lg-0">
+          <h3 class="h5">Pozostańmy w kontakcie</h3>
+          <p class="text-muted font-small">Dołącz do newslettera i bądź na bieżąco. Otrzymasz jedynie wiadomości na temat dużych zmian w funkcjonowaniu serwisu oraz wiadomości na temat nowych funkcjonalności.</p>
+          <form action="{{ url_for('services_blueprint.add_mail') }}" method="post">
+            <div class="form-row mb-2">
+              <div class="col-12">
+                <label class="h6 font-weight-normal text-muted" for="exampleInputEmail3">Adres Email</label>
+                <input type="email" class="form-control mb-2" placeholder="przykład@firma.com" name="email" aria-label="Subscribe form" id="exampleInputEmail3" required>
+              </div>
+              <div class="col-12">
+                <button type="submit" class="btn btn-tertiary shadow-soft btn-block" data-loading-text="Sending">
+                  <span>Subskrybuj</span>
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <hr class="my-5">
+      <div class="row">
+        <div class="col mb-md-0">
+          <a href="/" class="d-flex justify-content-center">
+            <img src="/static/assets/images/BuilderScript-logo.png" height="35" class="mb-3" alt="BS_Logo">
+          </a>
+          <div class="d-flex text-center justify-content-center align-items-center" role="contentinfo">
+            <p class="font-weight-normal font-small mb-0">
+              &copy; {{ year }} Builder Script - Paweł Jabłoński ® All rights reserved
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Core -->
+  <script src="/static/assets/vendor/@popperjs/core/dist/umd/popper.min.js"></script>
+  <script src="/static/assets/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="/static/assets/vendor/headroom.js/dist/headroom.min.js"></script>
+
+  <!-- Vendor JS -->
+  <script src="/static/assets/vendor/onscreen/dist/on-screen.umd.min.js"></script>
+  <script src="/static/assets/vendor/jarallax/dist/jarallax.min.js"></script>
+  <script src="/static/assets/vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
+  <script src="/static/assets/vendor/vivus/dist/vivus.min.js"></script>
+  <script src="/static/assets/vendor/vanillajs-datepicker/dist/js/datepicker.min.js"></script>
+
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+  <!-- Pixel JS -->
+  <script src="/static/assets/js/pixel.js"></script>
+
+
+</body>
+
+</html>
+<!-- Edited by Pawel -->
