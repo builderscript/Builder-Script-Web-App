@@ -36,7 +36,7 @@ def add_mail():
 @blueprint.route('/add-new-slot/<route>/<slot>/<next_slot>', methods=['GET', 'POST'])
 def add_new_slot(next_slot, slot, route):
     if request.method == "POST":
-        return redirect(url_for(f"home_blueprint.{route}", slot=next_slot))
+        return redirect(url_for(f"calculations_blueprint.{route}", slot=next_slot))
     return render_template("home/page-403.html"), 403
 
 
@@ -59,5 +59,5 @@ def delete_slot(slot, module_name, function_name):
             previous_slot = "1"
         else:
             previous_slot = str(int(slot) - 1)
-        return redirect(url_for(f"home_blueprint.{function_name}", slot=previous_slot))
+        return redirect(url_for(f"calculations_blueprint.{function_name}", slot=previous_slot))
     return render_template("home/page-403.html"), 403

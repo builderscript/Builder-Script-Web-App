@@ -27,7 +27,7 @@
 
             <!--[ single calculations ] start-->
             {% for calculation in all_data if all_data %}
-            <form action="{{ url_for('home_blueprint.dodawanie_page', slot=calculation.slot) }}">
+            <form action="{{ url_for('calculations_blueprint.dodawanie_page', slot=calculation.slot) }}">
               {% if calculation.description %}
             <button type="submit" class="btn btn-secondary" title="{{ calculation.description }}" data-toggle="tooltip">{{ calculation.datetime }}</button>
               {% else %}
