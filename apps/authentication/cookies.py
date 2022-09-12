@@ -94,3 +94,14 @@ def check_slot(user_id, module_name):
         return next_slot
     else:
         return 1
+
+
+def delete_calculations(user_id, module_name, slot):
+    data = Calculations.query.filter_by(user_id=user_id, module_name=module_name, slot=slot).first()
+    db.session.delete(data)
+    db.session.commit()
+
+
+def change_slot(data):
+    data.slot -= 1
+    db.session.commit()

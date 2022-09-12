@@ -48,6 +48,8 @@ def dodawanie_page(slot):
     route = "dodawanie_page"
     # get cookie user data
     user_id = cookies_get_user()
+    # get name of the blueprint function
+    function_name = dodawanie_page.__name__
     # get data, carry out calculations and save to db
     if request.method == "POST":
         calc_data = request.form
@@ -70,7 +72,7 @@ def dodawanie_page(slot):
     next_slot = check_slot(user_id=user_id, module_name=module_name)
     if 0 < slot <= next_slot:
         return render_template('calculator/dodawanie.html', data=data, slot=slot, next_slot=next_slot, route=route,
-                               all_data=all_data, max_slot=MAX_SLOT)
+                               all_data=all_data, max_slot=MAX_SLOT, module_name=module_name, function_name=function_name)
     else:
         return render_template('home/page-404.html')
 

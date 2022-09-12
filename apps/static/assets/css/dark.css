@@ -91,3 +91,6 @@ body.dark {
     background-color: transparent; }
 
 /*# sourceMappingURL=dark.css.map */
+
+body.dark .modal-content {
+    background-color: #2C394B; }

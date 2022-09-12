@@ -27,17 +27,17 @@ d.addEventListener("DOMContentLoaded", function(event) {
         xl: 1140
     };
     
-    var preloader = d.querySelector('.preloader');
-    if(preloader) {
-
-        const animations = ['oneByOne', 'delayed', 'sync', 'scenario'];
-
-        new Vivus('loader-logo', {duration: 80, type: 'oneByOne'}, function () {});
-
-        setTimeout(function() {
-            preloader.classList.add('show');
-        }, 1500);
-    }
+//    var preloader = d.querySelector('.preloader');
+//    if(preloader) {
+//
+//        const animations = ['oneByOne', 'delayed', 'sync', 'scenario'];
+//
+//        new Vivus('loader-logo', {duration: 80, type: 'oneByOne'}, function () {});
+//
+//        setTimeout(function() {
+//            preloader.classList.add('show');
+//        }, 1500);
+//    }
 
     if (d.querySelector('.headroom')) {
         var headroom = new Headroom(document.querySelector("#navbar-main"), {
