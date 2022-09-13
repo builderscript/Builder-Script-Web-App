@@ -8,6 +8,7 @@ from flask import render_template
 from datetime import datetime
 from jinja2 import TemplateNotFound
 from apps.authentication.cookies import cookie_service
+from apps.authentication.secure import admin_only
 
 # Configure copyright year to update
 year = datetime.now().year
@@ -32,6 +33,14 @@ def information_page():
     return render_template('calculator/informacje.html', id='informacje')
 
 
+# Administrator tools # Administrator tools # Administrator tools # Administrator tools # Administrator tools
+
+@blueprint.route('/administrator_tools')
+@admin_only
+def admin_tools():
+    return render_template('home/index-starter.html')
+
+
 # Last call - if requested url not found # Last call - if requested url not found # Last call - if requested url not found
 
 @blueprint.route('/<template>')
@@ -40,3 +49,4 @@ def route_template(template):
         return render_template(template)
     except TemplateNotFound:
         return render_template('home/page-404.html'), 404
+

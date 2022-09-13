@@ -2,9 +2,9 @@
 <html lang="pl">
 
 <head>
-    <title>
-        BuilderScript | {% block title %}{% endblock %}
-    </title>
+  <title>
+    BuilderScript | Projekty | Kalkulator Eurokod
+  </title>
     <!-- HTML5 Shim and Respond.js IE10 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 10]>
@@ -12,12 +12,12 @@
 		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 		<![endif]-->
   <!-- Meta -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="description" content="Twórz, wykonuj obliczenia i zarządzaj swoimi projektami. Builder Script dostarcza moduły do obliczeń konstrukcji stalowych, żelbetowych oraz elementów sprężonych zgodnie z zestawem Norm Europejskich - Eurokod." />
-    <meta name="keywords" content="stal, żelbet, sprężone, kalkulator eurokod, kalkulatory eurokod, eurokody, PN-EN, PN-EN 1990, PN-EN 1991-1-1, PN-EN 1992-1-1, PN-EN 1993-1-1, normy europejskie, obliczenia eurokod, konstrukcje sprężone, strefy wiatrowe eurokod, kalkulatory, kalkulatory budowlane, kalkulatory inżynierskie, kalkulatory ec, kalkulatory online" />
-    <meta name="author" content="Paweł Jabłoński" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="description" content="Twórz, wykonuj obliczenia i zarządzaj swoimi projektami. Builder Script dostarcza moduły do obliczeń konstrukcji stalowych, żelbetowych oraz elementów sprężonych zgodnie z zestawem Norm Europejskich - Eurokod." />
+  <meta name="keywords" content="stal, żelbet, sprężone, kalkulator eurokod, kalkulatory eurokod, eurokody, PN-EN, PN-EN 1990, PN-EN 1991-1-1, PN-EN 1992-1-1, PN-EN 1993-1-1, normy europejskie, obliczenia eurokod, konstrukcje sprężone, strefy wiatrowe eurokod, kalkulatory, kalkulatory budowlane, kalkulatory inżynierskie, kalkulatory ec, kalkulatory online" />
+  <meta name="author" content="Paweł Jabłoński" />
 
     <!-- Favicon icon -->
     <link rel="icon" href="{{ config.ASSETS_ROOT }}/images/BuilderScript-favicon.png" type="image/x-icon">
@@ -30,8 +30,6 @@
     <!-- dark mode css -->
     <link rel="stylesheet" href="{{ config.ASSETS_ROOT }}/css/dark.css">
 
-    <!-- Specific CSS goes HERE -->
-    {% block stylesheets %}{% endblock stylesheets %}
 
 </head>
 <body>
@@ -46,8 +44,6 @@
 
     {% include 'includes/scripts.html' %}
 
-    <!-- Specific Page JS goes HERE  -->
-    {% block javascripts %}{% endblock javascripts %}    
 
 </body>
 </html>

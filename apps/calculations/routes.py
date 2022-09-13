@@ -4,6 +4,7 @@ from flask import render_template, request
 from datetime import datetime
 from apps.authentication.cookies import cookie_service, cookies_get_user, save_calculations, cookies_get_data, \
     check_slot, cookies_get_all_data
+from flask_login import login_required
 
 # Configure datetime of calculations
 year = datetime.now().year
@@ -17,6 +18,7 @@ CONCRETE = 'moduł-żelbetowy'
 
 @blueprint.route(f'/kalkulatory/{CONCRETE}/dodawanie/<int:slot>', methods=['GET', 'POST'])
 @cookie_service
+@login_required
 def dodawanie_page(slot):
     # name the module first
     module_name = "dodawanie"
