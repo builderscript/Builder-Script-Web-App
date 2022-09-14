@@ -27,6 +27,7 @@ def redirect_back(endpoint, **values):
     return redirect(target)
 
 
+# Administrator only without freely link access
 def admin_only(page):
     @wraps(page)
     def wrapper_function(*args, **kws):

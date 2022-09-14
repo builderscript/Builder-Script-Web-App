@@ -15,8 +15,9 @@ from apps.authentication import blueprint
 from apps.authentication.forms import LoginForm, CreateAccountForm
 from apps.authentication.models import Users
 from apps.authentication.util import verify_pass
-from datetime import datetime
+from datetime import datetime, timedelta
 from apps.authentication.secure import is_safe_url
+import random
 
 
 # Configure copyright year to update
@@ -64,7 +65,6 @@ def register():
     if 'register' in request.form:
 
         username = request.form['username']
-        email = request.form['email']
 
         # Check usename exists
         user = Users.query.filter_by(username=username).first()
@@ -75,7 +75,14 @@ def register():
                                    form=create_account_form, year=year)
 
         # else we can create the user
-        user = Users(**request.form)
+        now = datetime.now()
+        users = Users.query.all()
+        if not users:
+            time = now + timedelta(days=365000)
+        else:
+            time = now + timedelta(days=35)
+        avatar = str(random.randint(1, 5))
+        user = Users(**request.form, register_date=now, time_left=time, avatar=avatar)
         db.session.add(user)
         db.session.commit()
 
@@ -94,7 +101,7 @@ def register():
 @blueprint.route('/wyloguj')
 def logout():
     logout_user()
-    return redirect(url_for('authentication_blueprint.login'))
+    return redirect(url_for('home_blueprint.home_page'))
 
 
 # Errors

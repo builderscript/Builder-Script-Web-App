@@ -46,7 +46,7 @@ class Calculations(db.Model, UserMixin):
     # Create property that enables to save json data and modify it by a key
     entry_data = db.Column(PickleType)
     result = db.Column(PickleType)
-    datetime = db.Column(db.String(64))
+    datetime = db.Column(db.String(1))
 
 
 class Users(db.Model, UserMixin):
@@ -57,6 +57,9 @@ class Users(db.Model, UserMixin):
     pin = db.Column(db.Integer)
     username = db.Column(db.String(64), unique=True)
     password = db.Column(db.LargeBinary)
+    register_date = db.Column(db.DateTime)
+    time_left = db.Column(db.DateTime)
+    avatar = db.Column(db.Integer)
 
     def __init__(self, **kwargs):
         for property, value in kwargs.items():

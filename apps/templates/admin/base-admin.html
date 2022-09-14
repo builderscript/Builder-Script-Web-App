@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+
+<head>
+    <title>
+        BuilderScript | Administrator
+    </title>
+    <!-- HTML5 Shim and Respond.js IE11 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 11]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="description"
+          content="Twórz, wykonuj obliczenia i zarządzaj swoimi projektami. BuilderScript dostarcza moduły do obliczeń konstrukcji stalowych, żelbetowych oraz elementów sprężonych zgodnie z zestawem Norm Europejskich Eurokod."/>
+    <meta name="keywords"
+          content="stal, żelbet, sprężone, kalkulator eurokod, kalkulatory eurokod, eurokody, PN-EN, PN-EN 1990, PN-EN 1991-1-1, PN-EN 1992-1-1, PN-EN 1993-1-1, normy europejskie, obliczenia eurokod, konstrukcje sprężone, strefy wiatrowe eurokod, kalkulatory, kalkulatory budowlane, kalkulatory inżynierskie, kalkulatory ec, kalkulatory online"/>
+    <meta name="author" content="Paweł Jabłoński"/>
+
+    <!-- Favicon icon -->
+    <link rel="icon" href="{{ config.ASSETS_ROOT }}/images/BuilderScript-favicon.png" type="image/x-icon">
+    <!-- fontawesome icon -->
+    <link rel="stylesheet" href="{{ config.ASSETS_ROOT }}/fonts/fontawesome/css/fontawesome-all.min.css">
+    <!-- animation css -->
+    <link rel="stylesheet" href="{{ config.ASSETS_ROOT }}/plugins/animation/css/animate.min.css">
+    <!-- vendor css -->
+    <link rel="stylesheet" href="{{ config.ASSETS_ROOT }}/css/style.css">
+    <!-- dark mode css -->
+    <link rel="stylesheet" href="{{ config.ASSETS_ROOT }}/css/dark.css">
+</head>
+
+
+<body>
+    <!-- [ Pre-loader ] start -->
+    <div class="loader-bg">
+        <div class="loader-track">
+            <div class="loader-fill"></div>
+        </div>
+    </div>
+    <!-- [ Pre-loader ] End -->
+
+    {% include 'admin/sidebar-admin.html' %}
+
+    {% include 'includes/navigation-free-access.html' %}
+
+    {% block content %}{% endblock content %}
+
+    {% include 'includes/scripts.html' %}
+
+</body>
+</html>
+<!-- Edited by Pawel -->

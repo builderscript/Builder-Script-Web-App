@@ -1,0 +1,114 @@
+{% extends "admin/base-admin.html" %}
+
+{% block content %}
+
+<!-- [ Main Content ] start -->
+<div class="pcoded-main-container">
+  <div class="pcoded-wrapper">
+    <div class="pcoded-content">
+      <div class="pcoded-inner-content">
+        <!-- [ breadcrumb ] start -->
+
+        <!-- [ breadcrumb ] end -->
+        <div class="main-body">
+          <div class="page-wrapper">
+
+            <!-- [ Main Content ] start -->
+            <div class="row">
+
+              <!--[ Lista użytkowników ] start-->
+              <div class="col">
+                <div class="card Recent-Users">
+                  <div class="card-header">
+                    <h5>Lista użytkowników Builder Script</h5>
+                  </div>
+                  <div class="card-block px-0 py-3">
+                    <div class="table-responsive">
+                      <table class="table table-hover">
+                        <tbody>
+
+                          {% for user in users %}
+                          <tr class="unread">
+                            <td><img class="rounded-circle" style="width:40px;" src="{{ config.ASSETS_ROOT }}/images/user/avatar-{{ user.avatar }}.jpg" alt="activity-user">
+                            </td>
+                            <td>
+                              <h6 class="mb-1 hljs-strong">{{ user.username }}</h6>
+                              <p class="m-0">Pin: {{ user.pin }}</p>
+                            </td>
+                            <td>
+                              <h6 class="text-muted m-b-0"><i class="fas fa-circle text-c-green f-10 m-r-15"></i>Dołączył: {{ (user.register_date).strftime("%Y-%m-%d") }}</h6>
+                            </td>
+                            <td>
+                              <h6 class="text-muted m-b-0"><i class="fas fa-circle text-c-red f-10 m-r-15"></i>Termin ważności konta: {{ (user.time_left - datetime).days }}dni</h6>
+                            </td>
+                            {% if not user.id == 1 %}
+                            <td><a href="#deleteModal" class="label theme-bg2 text-white f-12" data-toggle="modal" data-target="#deleteModal">Usuń użytkownika</a>
+                              <a href="#warningModal" class="label theme-bg text-white f-12" data-toggle="modal" data-target="#warningModal">Przedłuż ważność konta</a>
+                            </td>
+                            {% endif %}
+                          </tr>
+                          <!-- [ Warning Modal ] start -->
+                          <div class="modal fade" id="warningModal" tabindex="-1" role="dialog" aria-labelledby="warningModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h5 class="modal-title" id="warningModalLabel">Ostrzeżenie!</h5>
+                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                  </button>
+                                </div>
+                                <div class="modal-body">
+                                  Zamierzasz przedłużyć termin ważności konta użytkownika portalu.
+                                </div>
+                                <div class="modal-footer">
+                                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Anuluj</button>
+                                  <button type="submit" class="btn btn-warning">Edytuj</button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <!-- [ Warning Modal ] end -->
+
+                          <!-- [ Delete Modal ] start -->
+                          <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="warningModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h5 class="modal-title" id="deleteModalLabel">Ostrzeżenie!</h5>
+                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                  </button>
+                                </div>
+                                <div class="modal-body">
+                                  Zamierzasz usunąć konto użytkownika portalu.
+                                </div>
+                                <div class="modal-footer">
+                                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Anuluj</button>
+                                  <button type="submit" formaction="{{ url_for('admin_blueprint.delete_user', id=user.id, pin=user.pin, username=user.username) }}" class="btn btn-danger">Usuń</button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <!-- [ Delete Modal ] end -->
+                          {% endfor %}
+
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!--[ Lista użytkowników ] end-->
+
+            </div>
+            <!-- [ Main Content ] end -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+<!-- [ Main Content ] end -->
+
+{% endblock content %}

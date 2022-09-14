@@ -1,0 +1,56 @@
+<!-- [ navigation menu ] start -->
+<nav class="pcoded-navbar">
+  <div class="navbar-wrapper">
+    <div class="navbar-brand header-logo">
+      <a href="{{ url_for('home_blueprint.calculator_page') }}" class="b-brand">
+        <img class="BS_logo" src="/static/assets/images/BuilderScript-logo.png" alt="BS_Logo">
+      </a>
+      <a class="mobile-menu" id="mobile-collapse" href="javascript:"><span></span></a>
+    </div>
+    <div class="navbar-content scroll-div">
+      <ul class="nav pcoded-inner-navbar">
+        <li class="nav-item pcoded-menu-caption">
+          <label>Nawigacja</label>
+        </li>
+        <li class="nav-item {% if id == 'admin_tools' %} active {% endif %}">
+          <a href="{{ url_for('admin_blueprint.admin_tools') }}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-home"></i></span>
+            <span class="pcoded-mtext">Panel administratora</span></a>
+        </li>
+        <li class="nav-item {% if id == 'stats' %} active {% endif %}">
+          <a href="{{ url_for('admin_blueprint.admin_stats') }}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-star"></i></span>
+            <span class="pcoded-mtext">Statystyki</span></a>
+        </li>
+        <li class="nav-item {% if id == 'manage' %} active {% endif %}">
+          <a href="{{ url_for('admin_blueprint.admin_manage') }}" class="nav-link">
+            <span class="pcoded-micon">
+              <i class="feather icon-briefcase"></i>
+            </span>
+            <span class="pcoded-mtext">Zarządzaj użytkownikami</span>
+          </a>
+        </li>
+                <li class="nav-item pcoded-menu-caption">
+          <label>Więcej zasobów</label>
+                </li>
+        <li class="nav-item ">
+          <a href="{{ url_for('home_blueprint.calculator_page') }}" class="nav-link">
+            <span class="pcoded-micon">
+              <i class="feather icon-aperture"></i>
+            </span>
+            <span class="pcoded-mtext">Powrót do kalkulatorów</span>
+          </a>
+        </li>
+        </li>
+        <li class="nav-item ">
+          <a href="{{ url_for('authentication_blueprint.logout') }}" class="nav-link">
+            <span class="pcoded-micon">
+              <i class="feather icon-log-out"></i>
+            </span>
+            <span class="pcoded-mtext">Wyloguj się</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<!-- [ navigation menu ] end -->
+<!-- Edited by Pawel -->

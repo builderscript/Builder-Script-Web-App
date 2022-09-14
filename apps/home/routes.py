@@ -33,14 +33,6 @@ def information_page():
     return render_template('calculator/informacje.html', id='informacje')
 
 
-# Administrator tools # Administrator tools # Administrator tools # Administrator tools # Administrator tools
-
-@blueprint.route('/administrator_tools')
-@admin_only
-def admin_tools():
-    return render_template('home/index-starter.html')
-
-
 # Last call - if requested url not found # Last call - if requested url not found # Last call - if requested url not found
 
 @blueprint.route('/<template>')

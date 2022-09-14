@@ -20,15 +20,16 @@
           <a href="/kalkulatory/informacje" class="nav-link "><span class="pcoded-micon"><i class="feather icon-info"></i></span>
             <span class="pcoded-mtext">Informacje</span></a>
         </li>
+        {% if not current_user.is_authenticated %}
         <li class="nav-item">
-          <a href="#" class="nav-link "><span class="pcoded-micon"><i class="feather icon-log-out"></i></span>
+          <a href="{{ url_for('authentication_blueprint.login') }}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-log-in"></i></span>
             <span class="pcoded-mtext">Logowanie</span></a>
         </li>
         <li class="nav-item">
-          <a href="#" class="nav-link "><span class="pcoded-micon"><i class="feather icon-user-plus"></i></span>
+          <a href="{{ url_for('authentication_blueprint.register') }}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-user-plus"></i></span>
             <span class="pcoded-mtext">Rejestracja</span></a>
         </li>
-
+        {% endif %}
         <li class="nav-item pcoded-menu-caption">
           <label>Kalkulatory</label>
         </li>
@@ -59,6 +60,26 @@
             <span class="pcoded-mtext">Kontakt</span>
           </a>
         </li>
+        {% if current_user.id == 1 %}
+        <li class="nav-item ">
+          <a href="{{ url_for('admin_blueprint.admin_tools') }}" class="nav-link">
+            <span class="pcoded-micon">
+              <i class="feather icon-cpu"></i>
+            </span>
+            <span class="pcoded-mtext">Narzędzia administratora</span>
+          </a>
+        </li>
+        {% endif %}
+        {% if current_user.is_authenticated %}
+        <li class="nav-item ">
+          <a href="{{ url_for('authentication_blueprint.logout') }}" class="nav-link">
+            <span class="pcoded-micon">
+              <i class="feather icon-log-out"></i>
+            </span>
+            <span class="pcoded-mtext">Wyloguj się</span>
+          </a>
+        </li>
+        {% endif %}
       </ul>
     </div>
   </div>
