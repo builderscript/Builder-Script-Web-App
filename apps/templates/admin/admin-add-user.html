@@ -1,0 +1,66 @@
+{% extends "admin/base-admin.html" %}
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+<!-- [ Main Content ] start -->
+<div class="pcoded-main-container">
+  <div class="pcoded-wrapper">
+    <div class="pcoded-content">
+      <div class="pcoded-inner-content">
+
+
+        <!-- [ Calculations ] start -->
+
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="card">
+              <div class="card-header">
+                <h5>Dodaj nowego użytkownika Builder Script</h5>
+              </div>
+              <div class="card-body">
+                <h5>Generacja danych</h5>
+                <hr>
+                <div class="row">
+                  <div class="col-md-6">
+                    <form action="" method="post">
+                      <div class="form-group">
+                          <a href="{{ url_for('admin_blueprint.add_k_users') }}">Dodaj 1000 nowych użytkowników testowo</a>
+                        <label>Opis</label>
+                        <input type="text" class="form-control" placeholder="dodaj opis" name="tekst">
+                      </div>
+                      <div class="form-group">
+                        <label>Pierwsza liczba</label>
+                        <input type="text" class="form-control" placeholder="podaj liczbę" name="liczba1">
+                      </div>
+                      <div class="form-group">
+                        <label>Druga liczba</label>
+                        <input type="text" class="form-control" placeholder="podaj liczbę" name="liczba2">
+                      </div>
+                    </form>
+
+                  </div>
+                  <div class="col-md-6">
+                    <label class="label theme-bg2 text-white f-14 f-w-400 float-right">wynik</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- [ Calculations ] end -->
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- [ Main Content ] end -->
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}

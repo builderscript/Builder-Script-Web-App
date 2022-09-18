@@ -17,6 +17,7 @@ year = datetime.now().year
 # Basic routes # Basic routes # Basic routes # Basic routes # Basic routes # Basic routes # Basic routes # Basic routes
 
 @blueprint.route('/')
+@cookie_service
 def home_page():
     return render_template('home/index.html', year=year)
 

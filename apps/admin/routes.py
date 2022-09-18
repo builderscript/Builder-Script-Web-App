@@ -1,6 +1,6 @@
 from __future__ import print_function
 from apps.admin import blueprint
-from flask import render_template, redirect, url_for
+from flask import render_template, redirect, url_for, request
 from apps.authentication.secure import admin_only
 from apps.authentication.models import Users
 from datetime import datetime, timedelta
@@ -18,12 +18,18 @@ def admin_tools():
 def admin_stats():
     return render_template('admin/admin-tools.html', id='stats')
 
+@blueprint.route('/dodaj_użytkownika')
+@admin_only
+def admin_add_user():
+    return render_template('admin/admin-add-user.html', id='add')
+
 
 @blueprint.route('/zarządzaj')
 @admin_only
 def admin_manage():
-    users = Users.query.order_by(Users.time_left).all()
     now = datetime.now()
+    page = request.args.get('page', 1, type=int)
+    users = Users.query.order_by(Users.time_left).paginate(page=page, per_page=50)
     return render_template('admin/manage.html', id='manage', users=users, datetime=now)
 
 
@@ -44,3 +50,20 @@ def extend_user(id, pin, username):
     db.session.commit()
     return redirect(url_for('admin_blueprint.admin_manage'))
 
+
+# TEST # TEST  # TEST  # TEST  # TEST  # TEST  # TEST  # TEST  # TEST  # TEST  # TEST  # TEST  # TEST  # TEST  # TEST
+@blueprint.route('/test_only')
+@admin_only
+def add_k_users():
+    import random
+    for index in range(0, 205):
+        now = datetime.now()
+        seconds = random.randint(1, 60*60)
+        time = now + timedelta(seconds=seconds)
+        pin = '76' + str(index)
+        username = "BuilderScriptUser#" + str(index)
+        password = "BuilderScriptUser#" + str(index)
+        avatar = str(random.randint(1, 5))
+        db.session.add(Users(pin=pin, username=username, password=password, register_date=now, time_left=time, avatar=avatar, active=True))
+        db.session.commit()
+    return redirect(url_for('admin_blueprint.admin_add_user'))

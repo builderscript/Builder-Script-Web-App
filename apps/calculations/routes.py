@@ -1,10 +1,13 @@
 from __future__ import print_function
 from apps.calculations import blueprint
 from flask import render_template, request
+import flask_login
 from datetime import datetime
+from functools import wraps
+from apps.authentication.models import Users
+from apps import db
 from apps.authentication.cookies import cookie_service, cookies_get_user, save_calculations, cookies_get_data, \
     check_slot, cookies_get_all_data
-
 
 # Configure datetime of calculations
 year = datetime.now().year
@@ -12,12 +15,30 @@ year = datetime.now().year
 # General rules # General rules # General rules # General rules # General rules # General rules # General rules
 MAX_SLOT = 9  # every use can have maximum 0-9 - 10 slots
 
+# Check if user's account still active to access additional functions
+
+
+def account_activity_check(page):
+    @wraps(page)
+    def wrapper_function(*args, **kws):
+        now = datetime.now()
+        current_user_id = flask_login.current_user.get_id()
+        current_user = Users.query.filter_by(id=current_user_id).first()
+        if (current_user.time_left - now).total_seconds() <= 0:
+            current_user.active = False
+            db.session.commit()
+            return page(*args, **kws)
+
+    return wrapper_function
+
+
 # Calculations routes # Calculations routes # Calculations routes # Calculations routes # Calculations routes
 CONCRETE = 'moduł-żelbetowy'
 
 
 @blueprint.route(f'/kalkulatory/{CONCRETE}/dodawanie/<int:slot>', methods=['GET', 'POST'])
 @cookie_service
+@account_activity_check
 def dodawanie_page(slot):
     # name the module first
     module_name = "dodawanie"
@@ -49,6 +70,8 @@ def dodawanie_page(slot):
     next_slot = check_slot(user_id=user_id, module_name=module_name)
     if 0 < slot <= next_slot:
         return render_template('calculator/dodawanie.html', data=data, slot=slot, next_slot=next_slot, route=route,
-                               all_data=all_data, max_slot=MAX_SLOT, module_name=module_name, function_name=function_name)
+                               all_data=all_data, max_slot=MAX_SLOT, module_name=module_name,
+                               function_name=function_name)
     else:
         return render_template('home/page-404.html')
+

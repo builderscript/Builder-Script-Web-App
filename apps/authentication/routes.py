@@ -82,7 +82,7 @@ def register():
         else:
             time = now + timedelta(days=35)
         avatar = str(random.randint(1, 5))
-        user = Users(**request.form, register_date=now, time_left=time, avatar=avatar)
+        user = Users(**request.form, register_date=now, time_left=time, avatar=avatar, active=True)
         db.session.add(user)
         db.session.commit()
 

@@ -11,6 +11,14 @@ from apps import db, login_manager
 from apps.authentication.util import hash_pass
 
 
+class Stats(db.Model, UserMixin):
+
+    __tablename__ = 'Stats'
+
+    id = db.Column(db.Integer, primary_key=True)
+    cookies = db.Column(db.Integer)
+
+
 class Mailing(db.Model, UserMixin):
 
     __tablename__ = 'Mailing'
@@ -46,7 +54,7 @@ class Calculations(db.Model, UserMixin):
     # Create property that enables to save json data and modify it by a key
     entry_data = db.Column(PickleType)
     result = db.Column(PickleType)
-    datetime = db.Column(db.String(1))
+    datetime = db.Column(db.String(64))
 
 
 class Users(db.Model, UserMixin):
@@ -60,6 +68,7 @@ class Users(db.Model, UserMixin):
     register_date = db.Column(db.DateTime)
     time_left = db.Column(db.DateTime)
     avatar = db.Column(db.Integer)
+    active = db.Column(db.Boolean)
 
     def __init__(self, **kwargs):
         for property, value in kwargs.items():

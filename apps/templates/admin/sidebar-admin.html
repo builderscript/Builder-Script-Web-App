@@ -20,6 +20,10 @@
           <a href="{{ url_for('admin_blueprint.admin_stats') }}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-star"></i></span>
             <span class="pcoded-mtext">Statystyki</span></a>
         </li>
+        <li class="nav-item {% if id == 'add' %} active {% endif %}">
+          <a href="{{ url_for('admin_blueprint.admin_add_user') }}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-plus-circle"></i></span>
+            <span class="pcoded-mtext">Dodaj użytkownika</span></a>
+        </li>
         <li class="nav-item {% if id == 'manage' %} active {% endif %}">
           <a href="{{ url_for('admin_blueprint.admin_manage') }}" class="nav-link">
             <span class="pcoded-micon">
